@@ -1,0 +1,76 @@
+:root{
+  --bg: #0f1720;
+  --card: #111827;
+  --accent: #ef4444;
+  --muted: #9ca3af;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg,#071029 0%, #0e1724 100%);
+  color: #fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+.container{
+  width:100%;
+  max-width:920px;
+  background: rgba(255,255,255,0.03);
+  border-radius:12px;
+  padding:20px;
+  box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+}
+h1{margin:0 0 16px 0;text-align:center}
+.images{
+  display:flex;
+  gap:14px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:18px;
+}
+figure{margin:0;text-align:center}
+figure img{
+  width:260px;
+  height:260px;
+  object-fit:cover;
+  border-radius:12px;
+  display:block;
+  box-shadow:0 8px 18px rgba(2,6,23,0.6);
+  border:3px solid rgba(255,255,255,0.03);
+}
+figcaption{margin-top:8px;color:var(--muted)}
+
+.controls{display:flex;flex-direction:column;align-items:center;gap:10px}
+.heart-wrapper{display:flex;align-items:center;gap:12px}
+.heart{
+  width:84px;height:84px;border-radius:50%;
+  font-size:36px;line-height:1;border:0;cursor:pointer;
+  display:inline-flex;align-items:center;justify-content:center;
+  background:linear-gradient(180deg,var(--accent),#c0262e);
+  color:white;box-shadow:0 6px 18px rgba(224,36,94,0.18);
+  transform:scale(1);transition:transform .18s ease, box-shadow .18s ease;
+}
+.heart:active{transform:scale(.96)}
+.heart.pulse{animation:pulse .45s ease}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.18)}100%{transform:scale(1)}}
+.counter{font-size:22px;color:var(--muted);min-width:36px;text-align:center}
+.message{
+  min-height:36px; color:#fffb; font-weight:800; font-size:20px;
+  transition:opacity .25s ease, transform .18s ease, font-size .18s ease;
+  opacity:0; display:flex; align-items:center; justify-content:center;
+}
+.message.show{opacity:1; color:#fff; text-shadow:0 8px 34px rgba(239,68,68,0.22); transform:scale(1.02); font-size:30px}
+
+/* Mostrar mais da parte de cima da primeira imagem (ela) */
+.images figure img{ object-position: center 12%; }
+/* Levantar um pouco apenas a segunda imagem (ele) */
+.images figure:last-child img{ object-position: center 40%; }
+
+@media (max-width:640px){
+  figure img{width:160px;height:160px}
+  .heart{width:64px;height:64px;font-size:28px}
+}

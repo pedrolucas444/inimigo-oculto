@@ -1,2 +1,0 @@
-# inimigo-oculto
-t
